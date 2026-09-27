@@ -1,3 +1,5 @@
+using System;
+
 namespace Reviolet;
 
 public enum SceneName
@@ -9,6 +11,7 @@ public enum SceneName
 public interface INavigation
 {
 	public SceneControl? CurrentScene { get; }
+	public event Action<SceneName>? SceneChanged;
 	
 	public void NavigateToScene(SceneName destination);
 }

@@ -14,7 +14,7 @@ public class Frontend : INavigation
 	private MainWindow? _mainWindow;
 
 	public SceneControl? CurrentScene { get; private set; }
-
+	public event Action<SceneName>? SceneChanged;
 
 	// Two-stage initialization {o}
 	public Frontend(Backend backend)
@@ -29,6 +29,7 @@ public class Frontend : INavigation
 		var initScene = new TasklistScene();
 		var sidebar = new SidebarView(this);
 		_mainWindow = new MainWindow(sidebar, initScene);
+		SceneChanged?.Invoke(SceneName.TASKLIST);
 
 		// set MainWindow as the actual window of the app
 		desktop.MainWindow = _mainWindow;
@@ -60,5 +61,6 @@ public class Frontend : INavigation
 
 		_mainWindow.SwitchScene(newScene);
 		CurrentScene = newScene;
+		SceneChanged?.Invoke(destination);
 	}
 }
