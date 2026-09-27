@@ -3,16 +3,44 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Reviolet.Views.SidebarView">
+             x:Class="Reviolet.Views.SidebarView"
+
+             Padding="20 0"
+             Background="{DynamicResource MidgroundBrush}">
   
   <Grid 
-    Margin="0"
-    Background="{DynamicResource MidgroundBrush}"
+    Margin="0 20"
+    VerticalAlignment="Stretch"
+    HorizontalAlignment="Stretch"
+    RowDefinitions="50 *"
   >
+    <Image 
+      Source="/Assets/violet-icon.png" 
+      Grid.Column="0"
+      Grid.Row="0" 
+      Width="50" 
+      Height="50"
+    />
     
-    <Button Classes="standardButton">
-      boop
-    </Button>
+    <StackPanel Spacing="40" Grid.Row="1" VerticalAlignment="Center">
+
+      <StackPanel Spacing="5">
+        <Button 
+          Classes="sidebarButton" 
+          Focusable="False" 
+          Content="{SvgImage /Assets/Icons/ic--outline-checklist.svg}"
+        />
+
+        <TextBlock
+          Classes="sidebarText"
+          Text="Tasklist"
+          HorizontalAlignment="Center"
+        />
+      </StackPanel>
+      
+
+
+    </StackPanel>
 
   </Grid>
 
