@@ -4,9 +4,9 @@ using Avalonia.Markup.Xaml;
 
 namespace Reviolet.Scenes;
 
-public partial class TasklistScene : SceneControl
+public partial class SettingsScene : SceneControl
 {
-    public TasklistScene()
+    public SettingsScene()
     {
         InitializeComponent();
     }

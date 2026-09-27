@@ -1,26 +1,64 @@
+using System;
 using Avalonia.Controls.ApplicationLifetimes;
 using Reviolet.Scenes;
+using Reviolet.Views;
 
 namespace Reviolet;
 
-public class Frontend
+public class Frontend : INavigation
 {
-	// replace later! this is supposed to be Navigator's job
-	private IScene _currentScene;
+	// frontend is dependent on backend to function. 
+	// backend doesn't even know frontend exists.
+	// many such cases
+	private Backend _backend;
 	private MainWindow? _mainWindow;
 
-	public Frontend()
+	public SceneControl? CurrentScene { get; private set; }
+
+
+	// Two-stage initialization {o}
+	public Frontend(Backend backend)
 	{
-		_currentScene = new TasklistScene();
+		_backend = backend;
 	}
 
 	// called by App after framework init, to start presentation
 	public void GenerateMainWindow(IClassicDesktopStyleApplicationLifetime desktop)
 	{
-		// initialize a MainWindow and a MainVM
-		_mainWindow = new MainWindow(_currentScene);
+		// initialize an empty main window
+		var initScene = new TasklistScene();
+		var sidebar = new SidebarView(this);
+		_mainWindow = new MainWindow(sidebar, initScene);
 
 		// set MainWindow as the actual window of the app
 		desktop.MainWindow = _mainWindow;
+	}
+
+
+	// Navigation interface implementation {g}
+	public void NavigateToScene(SceneName destination)
+	{
+		if (_mainWindow == null)
+		{
+			Console.WriteLine("[ERR] Request to switch scenes, but main window is missing");
+			return;
+		}
+
+		SceneControl newScene;
+		switch (destination)
+		{
+			case SceneName.TASKLIST:
+				newScene = new TasklistScene();
+				break;
+			case SceneName.SETTINGS:
+				newScene = new SettingsScene();
+				break;
+			default:
+				Console.WriteLine("[ERR] Attempt to switch scenes but scene name is undefined.");
+				return;
+		}
+
+		_mainWindow.SwitchScene(newScene);
+		CurrentScene = newScene;
 	}
 }

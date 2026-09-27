@@ -1,6 +1,8 @@
+using Avalonia.Controls;
+
 namespace Reviolet;
 
-public interface IScene
+public abstract class SceneControl : UserControl
 {
 	
 }

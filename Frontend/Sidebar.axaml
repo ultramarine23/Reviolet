@@ -26,9 +26,11 @@
 
       <StackPanel Spacing="5">
         <Button 
+          x:Name="TasklistButton"
           Classes="sidebarButton" 
           Focusable="False" 
           Content="{SvgImage /Assets/Icons/ic--outline-checklist.svg}"
+          Click="TasklistButton_Click"
         />
 
         <TextBlock
@@ -38,7 +40,21 @@
         />
       </StackPanel>
       
+      <StackPanel Spacing="5">
+        <Button 
+          x:Name="SettingsButton"
+          Classes="sidebarButton" 
+          Focusable="False" 
+          Content="{SvgImage /Assets/Icons/ic--outline-checklist.svg}"
+          Click="SettingsButton_Click"
+        />
 
+        <TextBlock
+          Classes="sidebarText"
+          Text="Settings"
+          HorizontalAlignment="Center"
+        />
+      </StackPanel>
 
     </StackPanel>
 

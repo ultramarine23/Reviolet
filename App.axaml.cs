@@ -8,14 +8,11 @@ public partial class App : Application
 {
     private Frontend _frontend;
     private Backend _backend;
-    private Navigator _navigator;
-    
 
     public App()
     {
-        _frontend = new Frontend();
         _backend = new Backend();
-        _navigator = new Navigator(_backend, _frontend);
+        _frontend = new Frontend(_backend);
     }
 
 
