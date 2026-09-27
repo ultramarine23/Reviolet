@@ -6,6 +6,19 @@ namespace Reviolet;
 
 public partial class App : Application
 {
+    private Frontend _frontend;
+    private Backend _backend;
+    private Navigator _navigator;
+    
+
+    public App()
+    {
+        _frontend = new Frontend();
+        _backend = new Backend();
+        _navigator = new Navigator(_backend, _frontend);
+    }
+
+
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
@@ -15,7 +28,8 @@ public partial class App : Application
     {
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
-            desktop.MainWindow = new MainWindow();
+           // delegate the creation of the main window to frontend
+           _frontend.GenerateMainWindow(desktop);
         }
 
         base.OnFrameworkInitializationCompleted();
