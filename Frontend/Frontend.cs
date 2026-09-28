@@ -1,5 +1,6 @@
 using System;
 using Avalonia.Controls.ApplicationLifetimes;
+using Reviolet.Models;
 using Reviolet.Scenes;
 using Reviolet.Views;
 
@@ -26,7 +27,8 @@ public class Frontend : INavigation
 	public void GenerateMainWindow(IClassicDesktopStyleApplicationLifetime desktop)
 	{
 		// initialize an empty main window
-		var initScene = new TasklistScene();
+		var deps = new TasklistDependencies(_backend.StateQuery, _backend.TaskService);
+		var initScene = new TasklistScene(deps);
 		var sidebar = new SidebarView(this);
 		_mainWindow = new MainWindow(sidebar, initScene);
 		SceneChanged?.Invoke(SceneName.TASKLIST);
@@ -49,10 +51,12 @@ public class Frontend : INavigation
 		switch (destination)
 		{
 			case SceneName.TASKLIST:
-				newScene = new TasklistScene();
+				var deps = new TasklistDependencies(_backend.StateQuery, _backend.TaskService);
+				newScene = new TasklistScene(deps);
 				break;
 			case SceneName.SETTINGS:
 				newScene = new SettingsScene();
+				_backend.TaskService.AddTask(new Task());
 				break;
 			default:
 				Console.WriteLine("[ERR] Attempt to switch scenes but scene name is undefined.");

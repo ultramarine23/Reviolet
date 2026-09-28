@@ -12,11 +12,11 @@
       x:Name="Header"
       Classes="standardHeader2"
       Grid.Row="0"
-      Text="12345"
+      Text="[placeholder]"
     />
     
     <ItemsControl
-      x:Name="TaskList"
+      x:Name="TaskCardsSlot"
       Grid.Row="1"
       VerticalAlignment="Stretch"
     />
