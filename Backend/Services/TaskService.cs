@@ -26,4 +26,10 @@ public class TaskService
 		_appState.Tasks.Remove(task);
 		ModifiedTasklist?.Invoke();
 	}
+
+	public void EditTaskDetails(Task task, TaskDetails newDetails)
+	{
+		task.Details = newDetails;
+		ModifiedTasklistMember?.Invoke();
+	}
 }
