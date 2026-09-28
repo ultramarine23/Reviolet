@@ -3,21 +3,25 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-             x:Class="Reviolet.Scenes.TasklistScene"
-             
-             Margin="20"
-             >
+             x:Class="Reviolet.Components.KanbanBoard">
   
-  <Grid>
-    <ContentControl
-      x:Name="TaskAdderSlot"
-      Grid.Row="0"
+  <Grid ColumnDefinitions="* * *" ColumnSpacing="15">
+
+    <UserControl
+      x:Name="BacklogColumnSlot"
+      Grid.Column="0"
     />
 
-    <ContentControl
-      x:Name="KanbanBoardSlot"
-      Grid.Row="1"
+    <UserControl
+      x:Name="ProgressColumnSlot"
+      Grid.Column="1"
     />
+
+    <UserControl
+      x:Name="CompletedColumnSlot"
+      Grid.Column="2"
+    />
+
   </Grid>
-
+          
 </UserControl>

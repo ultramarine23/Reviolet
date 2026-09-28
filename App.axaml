@@ -1,5 +1,6 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:Reviolet"
              x:Class="Reviolet.App"
              RequestedThemeVariant="Default">
              <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
@@ -72,6 +73,13 @@
     
     <Application.Styles>
         <FluentTheme />
+
+        <Style Selector="Window">
+            <Setter Property="Margin" Value="0" />
+            <Setter Property="Padding" Value="0" />
+            <Setter Property="VerticalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+        </Style>
 
         <StyleInclude Source="avares://Reviolet/Styles/ButtonStyles.axaml" />
         <StyleInclude Source="avares://Reviolet/Styles/TextBlockStyles.axaml" />

@@ -27,9 +27,17 @@
 
 
   <!-- header block {y} -->
-  <Style Selector="TextBlock.standardHeader">
+  <Style Selector="TextBlock.standardHeader1">
     <Setter Property="Foreground" Value="{DynamicResource PrimaryText}" />
     <Setter Property="FontSize" Value="{StaticResource H1Font}" />
+    <Setter Property="FontWeight" Value="Bold" />
+  </Style>
+
+
+  <!-- header medium block {y} -->
+  <Style Selector="TextBlock.standardHeader2">
+    <Setter Property="Foreground" Value="{DynamicResource PrimaryText}" />
+    <Setter Property="FontSize" Value="{StaticResource H2Font}" />
     <Setter Property="FontWeight" Value="Bold" />
   </Style>
 
@@ -48,5 +56,5 @@
     <Setter Property="FontSize" Value="{StaticResource SmallFont}" />
   </Style>
 
-  
+
 </Styles>

@@ -44,7 +44,7 @@
         <Button 
           x:Name="SettingsButton"
           Classes="sidebarButton" 
-          Focusable="False" 
+          Focusable="False"
           Content="{SvgImage /Assets/Icons/ic--outline-checklist.svg}"
           Click="SettingsButton_Click"
         />
