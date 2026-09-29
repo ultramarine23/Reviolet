@@ -21,10 +21,7 @@ public class StateQuery
 	// --> query methods {y}
 	public IEnumerable<IReadTask> GetTasks()
 	{
-		CollectionPrinter.PrintEnumerable(_source.Tasks);
-		var res = _source.Tasks.Cast<IReadTask>();
-		CollectionPrinter.PrintEnumerable(res);
-		return res;
+		return _source.Tasks.Cast<IReadTask>();
 	}
 	
 	// do the same for other queriable state members...

@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Reviolet;
+namespace Reviolet.Utility;
 
-public class CollectionPrinter
+public class ArrayPrint
 {
 	public static void PrintCollection<T>(ICollection<T> coll)
 	{

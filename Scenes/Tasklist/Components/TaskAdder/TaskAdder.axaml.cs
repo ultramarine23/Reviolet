@@ -12,18 +12,21 @@ public partial class TaskAdder : UserControl
 {
     private TasklistDependencies _deps;
     
+    private DateSelector _dateSelector;
+    
     public TaskAdder(TasklistDependencies deps)
     {
         InitializeComponent();
 
         // initialize deps and components
         _deps = deps;
+        _dateSelector = new DateSelector();
 
         // connect events for synchronization
         // ...
         
         // set up UI elements
-        // ...
+        DateSelectorSlot.Content = _dateSelector;
     }
 
     // relay methods

@@ -28,6 +28,7 @@
 
     <Grid ColumnDefinitions="* * * *" Grid.Column="0" Grid.Row="1" ColumnSpacing="5">
       <ContentControl
+        x:Name="DateSelectorSlot"
         Grid.Column="0"
       />
 
