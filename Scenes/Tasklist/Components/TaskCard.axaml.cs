@@ -1,3 +1,4 @@
+using System;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
@@ -29,6 +30,6 @@ public partial class TaskCard : UserControl
     // synchronizers {y}
     private void RefreshDisplay()
     {
-        TaskDescription.Text = _task.Description;
+        TaskDescription.Text = _task.Details.Description;
     }
 }

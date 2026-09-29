@@ -4,11 +4,11 @@ namespace Reviolet.Models;
 
 public class TaskDetails
 {
-	public bool IsImportant		  { get; }
-	public string Description 	  { get; }
-	public DateTime DateDue 	  { get; }
-	public DateTime DateCreated   { get; }
-	public TimeSpan EstimatedTime { get; }
+	public bool IsImportant		  { get; set; }
+	public string Description 	  { get; set; }
+	public DateTime DateDue 	  { get; set; }
+	public DateTime DateCreated   { get; set; }
+	public TimeSpan EstimatedTime { get; set; }
 
 
 	public TaskDetails(

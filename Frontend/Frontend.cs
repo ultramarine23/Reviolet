@@ -56,7 +56,6 @@ public class Frontend : INavigation
 				break;
 			case SceneName.SETTINGS:
 				newScene = new SettingsScene();
-				_backend.TaskService.AddTask(new Task());
 				break;
 			default:
 				Console.WriteLine("[ERR] Attempt to switch scenes but scene name is undefined.");

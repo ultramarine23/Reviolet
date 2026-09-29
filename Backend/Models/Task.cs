@@ -7,27 +7,15 @@ public class Task : IReadTask
 	public Guid Uuid { get; }
 	public TaskDetails Details { get; set; }
 	
-	public Task()
+	public Task(TaskDetails details)
 	{
 		Uuid = Guid.CreateVersion7();
-		Details = new TaskDetails(
-			isImportant: false,
-			description:"toong toong",
-			dateDue: DateTime.Now,
-			dateCreated: DateTime.Now,
-			estimatedTime: TimeSpan.FromHours(5)
-		);
+		Details = details;
 	}
 
-	public Task(Guid uuid)
+	public Task(Guid uuid, TaskDetails details)
 	{
 		Uuid = uuid;
-		Details = new TaskDetails(
-			isImportant: false,
-			description:"toong toong",
-			dateDue: DateTime.Now,
-			dateCreated: DateTime.Now,
-			estimatedTime: TimeSpan.FromHours(5)
-		);
+		Details = details;
 	}
 }

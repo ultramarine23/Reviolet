@@ -5,5 +5,5 @@ namespace Reviolet.Models;
 public interface IReadTask
 {
 	public Guid Uuid { get; }
-	public string Description { get; }
+	public TaskDetails Details { get; }
 }

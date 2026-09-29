@@ -8,7 +8,7 @@
              Margin="20"
              >
   
-  <Grid>
+  <Grid RowDefinitions="Auto *" RowSpacing="10">
     <ContentControl
       x:Name="TaskAdderSlot"
       Grid.Row="0"

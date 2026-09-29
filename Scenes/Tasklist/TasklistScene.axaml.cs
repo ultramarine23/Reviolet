@@ -11,6 +11,7 @@ public partial class TasklistScene : SceneControl
     
     // scene components {r}
     private KanbanBoard _kanbanBoard;
+    private TaskAdder _taskAdder;
 
     
     public TasklistScene(TasklistDependencies deps)
@@ -19,7 +20,9 @@ public partial class TasklistScene : SceneControl
 
         _deps = deps;
         _kanbanBoard = new(_deps);
+        _taskAdder = new(_deps);
 
         KanbanBoardSlot.Content = _kanbanBoard;
+        TaskAdderSlot.Content = _taskAdder;
     }
 }
