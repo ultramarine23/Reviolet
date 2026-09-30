@@ -12,11 +12,14 @@ namespace Reviolet.Components;
 public partial class DateSelector : UserControl
 {
     public DateOnly Date { get; private set; }
+    public string? DateName { get; set; }
     
-    public DateSelector()
+
+    public DateSelector(string dateName = "")
     {
         InitializeComponent();
         Date = DateOnly.FromDateTime(DateTime.Now);
+        DateName = dateName;
 
         // initialize components {white, 1}
         // (no deps for globals)
@@ -24,9 +27,8 @@ public partial class DateSelector : UserControl
         // connect events for synchronization {white, 1}
         // ...
         
-        // set up UI elements {white, 2}
+        // set up UI elements {white, 1}
         RefreshDisplay();
-        SetIsHoldingEnabled(this, false);
     }
 
     // relay methods {y}
@@ -51,6 +53,8 @@ public partial class DateSelector : UserControl
 
     private void RefreshDisplay()
     {
-        TriggerButton.Content = Date.ToString("ddd, dd MMM yyyy");
+        var dateStr = Date.ToString("ddd, dd MMM yyyy");
+        TriggerButton.Content = $"{DateName}: {dateStr}";
+        
     }
 }

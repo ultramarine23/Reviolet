@@ -20,7 +20,7 @@ public partial class TaskAdder : UserControl
 
         // initialize deps and components
         _deps = deps;
-        _dateSelector = new DateSelector();
+        _dateSelector = new DateSelector("Due");
 
         // connect events for synchronization
         // ...
@@ -33,11 +33,11 @@ public partial class TaskAdder : UserControl
     public void AdderButton_Click(object? sender, RoutedEventArgs e)
     {
         var newDetails = new TaskDetails(
-            isImportant:false,
-            description:"Foo bar.",
-            dateDue:DateTime.Now,
-            dateCreated:DateTime.Now,
-            estimatedTime:TimeSpan.FromHours(5)
+            isImportant   : false,
+            description   : "Foo bar.",
+            dateDue       : DateTime.Now,
+            dateCreated   : DateTime.Now,
+            estimatedTime : TimeSpan.FromHours(5)
         );
         
         _deps.TaskService.AddTask(new Task(newDetails));

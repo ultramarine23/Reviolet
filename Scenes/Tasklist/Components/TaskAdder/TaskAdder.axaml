@@ -7,7 +7,7 @@
              Background="{DynamicResource MidgroundBrush}"
              CornerRadius="5">
   
-  <Grid ColumnDefinitions="* 48" RowDefinitions="32 32" ColumnSpacing="5" RowSpacing="5" Margin="10">
+  <Grid ColumnDefinitions="6* *" RowDefinitions="32 32" ColumnSpacing="5" RowSpacing="5" Margin="10">
     <TextBox
       x:Name="DescriptionBox"
       Classes="purpleHighlight"
@@ -20,8 +20,10 @@
 
     <Button
       x:Name="AdderButton"
+      Classes="standardButton"
       Grid.Column="1"
       Grid.Row="0"
+      HorizontalAlignment="Stretch"
       Content="{SvgImage /Assets/Icons/ic--outline-add.svg}"
       Click="AdderButton_Click"
     />
